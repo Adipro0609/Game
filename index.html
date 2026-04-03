@@ -48,11 +48,16 @@ function updateScreen() {
 }
 
 // Auto click every second
-setInterval(function() {
+setInterval(function(){
     score += autoClickers;
     updateScreen();
 }, 1000);
 </script>
-
+    
 </body>
 </html>
+<h2>Shop</h2>
+<button onclick="buyUpgrade()">+1 Per Click (10)</button>
+<button onclick="buyAuto()">Auto Clicker (50)</button>
+<button onclick="buyDouble()">Double Score (200)</button>
+<p>Level: <span id="level">1</span></p>
