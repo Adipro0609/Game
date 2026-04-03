@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clicker Game</title>
+</head>
+<body>
+
+<h1>Clicker Game</h1>
+
+<p>Score: <span id="score">0</span></p>
+<p>Points per click: <span id="perClick">1</span></p>
+
+<button onclick="clickScore()">Click Me!</button>
+
+<h2>Upgrades</h2>
+<button onclick="buyUpgrade()">Upgrade Click (Cost: 10)</button>
+<button onclick="buyAuto()">Auto Clicker (Cost: 50)</button>
+
+<script>
+let score = 0;
+let perClick = 1;
+let autoClickers = 0;
+
+function clickScore() {
+    score += perClick;
+    updateScreen();
+}
+
+function buyUpgrade() {
+    if (score >= 10) {
+        score -= 10;
+        perClick++;
+        updateScreen();
+    }
+}
+
+function buyAuto() {
+    if (score >= 50) {
+        score -= 50;
+        autoClickers++;
+        updateScreen();
+    }
+}
+
+function updateScreen() {
+    document.getElementById("score").innerText = score;
+    document.getElementById("perClick").innerText = perClick;
+}
+
+// Auto click every second
+setInterval(function() {
+    score += autoClickers;
+    updateScreen();
+}, 1000);
+</script>
+
+</body>
+</html>
